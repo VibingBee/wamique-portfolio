@@ -16,7 +16,7 @@
    LAYOUT laptop: title band over a full-width metric poster; phone: name, poster, then case study tabs stacked */
 :root{color-scheme:light;--bg:#F5F5F2;--ink:#111111;--acc:#C6E85A;--on-acc:#111111;--acc-ink:#4F6B0A;--sec:#777A78;--card:#FFFFFF;--acc-dark:#C6E85A}
 :root{--soft:color-mix(in srgb,var(--sec) 40%,var(--ink));--line:color-mix(in srgb,var(--ink) 13%,var(--bg));--field:color-mix(in srgb,var(--acc) 11%,var(--bg));--dark:var(--ink);--on-dark:var(--bg);--dark-soft:color-mix(in srgb,var(--bg) 68%,var(--ink));--dark-line:color-mix(in srgb,var(--bg) 16%,var(--ink));--mari:var(--acc);--mari-ink:var(--on-acc);--ver:var(--acc-ink)}
-:root[data-mode=dark]{color-scheme:dark;--bg:#111111;--ink:#F5F5F2;--acc:#C6E85A;--on-acc:#111111;--acc-ink:#C6E85A;--sec:#9A9D9B;--card:#1D1D1D;--acc-dark:#C6E85A;--dark:#1A1A1A;--on-dark:#F5F5F2;--dark-soft:#B4B6B4;--dark-line:#333333}
+:root[data-mode=dark]{color-scheme:dark;--bg:#111111;--ink:#F5F5F2;--acc:#D4FF52;--on-acc:#111111;--acc-ink:#D4FF52;--field:color-mix(in srgb,#D4FF52 20%,#161616);--sec:#9A9D9B;--card:#1D1D1D;--acc-dark:#D4FF52;--dark:#1A1A1A;--on-dark:#F5F5F2;--dark-soft:#B4B6B4;--dark-line:#333333}
 body,nav,.panel,.m,.tier .txt,.crow{transition:background-color .25s,color .25s,border-color .25s}
 .mode{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;padding:0}
 .mode:hover{border-color:var(--ink)}
@@ -24,6 +24,9 @@ body,nav,.panel,.m,.tier .txt,.crow{transition:background-color .25s,color .25s,
 .mode .sun{display:none}
 :root[data-mode=dark] .mode .sun{display:block}
 :root[data-mode=dark] .mode .moon{display:none}
+.alt{background:var(--field)}
+:root[data-mode=dark] .t3 .lvl{background:color-mix(in srgb,var(--acc) 40%,var(--bg))}
+:root[data-mode=dark] .t2 .lvl{background:color-mix(in srgb,var(--acc) 70%,var(--bg))}
 @media(prefers-reduced-motion:reduce){body,nav,.panel,.m,.tier .txt,.crow{transition:none}}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:64px;scroll-behavior:smooth}
