@@ -107,6 +107,9 @@ li{margin-bottom:4px}
 .caps span{font-size:13px;font-weight:600;background:var(--field);border-radius:999px;padding:4px 10px}
 .ph{border:2px dashed color-mix(in srgb,var(--ver) 60%,var(--line));border-radius:12px;background:repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--mari) 10%,transparent) 10px 20px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:18px;min-height:170px;color:var(--soft);font-size:14px}
 .ph b{color:var(--ver);font-size:13px;margin-bottom:4px}
+.shot{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0b0f12;display:flex;flex-direction:column}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:720/1280;object-fit:cover;object-position:top;max-height:560px}
+.shot figcaption{padding:10px 14px;font-size:14px;font-weight:600;background:var(--card);color:var(--ink);margin-top:auto}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}
 .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;counter-reset:f}
 .flow div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;font-weight:600;font-size:15px}
@@ -152,11 +155,11 @@ li{margin-bottom:4px}
       <div class="btns"><a class="btn dark" href="#getsorted">Read the GetSorted case</a><a class="btn" href="#contact">Contact</a></div>
     </div>
     <aside class="poster" aria-label="GetSorted Reddit results">
-      <h2>GetSorted, Banaras: Reddit launch to community</h2>
+      <h2>GetSorted, Banaras: from r/varanasi to a community</h2>
       <div class="big">65.9K</div>
       <p class="sub">views on the post-event recap, from a community started from zero</p>
       <div class="bars" id="bars"></div>
-      <div class="rank"><b>#1</b><p>Recap ranked #1 all-time in the subreddit, per the original screenshot</p></div>
+      <div class="rank"><b>#1</b><p>The recap became my #1 Reddit post of all time, per Reddit post insights</p></div>
     </aside>
   </div>
 </header>
@@ -187,13 +190,13 @@ li{margin-bottom:4px}
         </div>
         <div class="blk">
           <h4>Reddit campaign performance</h4>
-          <div class="panel"><b>Original event announcement</b><div class="metric-row" id="m-ann"></div></div>
-          <div class="panel mari" style="margin-top:12px"><b>Post-event recap</b><div class="metric-row" id="m-rec"></div><p class="note" style="margin:10px 0 0">Ranked #1 all-time in the subreddit, according to the supplied screenshot.</p></div>
+          <div class="panel"><b>Original event announcement</b> <span class="note">"House Party" on r/varanasi</span><div class="metric-row" id="m-ann"></div></div>
+          <div class="panel mari" style="margin-top:12px"><b>Post-event recap</b><div class="metric-row" id="m-rec"></div><p class="note" style="margin:10px 0 0">"Accidentally threw the best house party in Varanasi (still recovering)", posted on r/varanasi. Reddit insights mark it as my #1 post of all time.</p></div>
         </div>
       </div>
       <div class="gallery">
-        <div class="ph"><b>Screenshot to add</b>Reddit event announcement post with views and comments</div>
-        <div class="ph"><b>Screenshot to add</b>Reddit recap post showing 65.9K views and #1 all-time rank</div>
+        <figure class="shot"><img src="assets/reddit-announcement.jpg" alt="Reddit post insights for the House Party announcement on r/varanasi: 10.5k views, 33 upvotes, 95% upvote ratio, 174 comments" loading="lazy" width="720" height="1280"><figcaption>Announcement: 10.5K views, 174 comments</figcaption></figure>
+        <figure class="shot"><img src="assets/reddit-recap.jpg" alt="Reddit post insights for the recap post: number 1 post of all time, 65.9k views, 252 upvotes, 93% upvote ratio, 111 comments" loading="lazy" width="720" height="1280"><figcaption>Recap: 65.9K views, my #1 post of all time</figcaption></figure>
         <div class="ph"><b>Photo to add</b>First GetSorted house party</div>
       </div>
 
