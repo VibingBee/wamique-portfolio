@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wamique Ahmad Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a personal portfolio for recruiters, confident and lively but tidy
+   IDEA a Banaras event poster and ticket stub: marigold fields, bold block type, perforated stubs for metrics
+   PICTURE the GetSorted Reddit numbers as a big poster: 10.5K announcement vs 65.9K recap drawn as rising bars
+   COLOUR white ground, marigold #ffbe0b field, ink #17130f, vermilion #e23d1c accent; night #17130f with the same marigold
+   TYPE Archivo 800/900 display + Inter text
+   LAYOUT laptop: title band over a full-width metric poster; phone: name, poster, then case study tabs stacked */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#17130f);--ink:light-dark(#17130f,#f6efe4);--soft:light-dark(#5b5248,#bfb3a3);--mari:#ffbe0b;--mari-ink:#17130f;--ver:light-dark(#d4360f,#ff6a45);--line:light-dark(#e7e0d5,#3a322a);--card:light-dark(#fbf7f0,#221c16);--field:light-dark(#fff4d1,#2a2216)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:64px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar i{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+img{max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4{font-family:Archivo,Inter,sans-serif;line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+p{margin:0 0 12px;max-width:68ch}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(32px,5vw,72px);padding-inline:max(5vw,16px)}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:16px;padding:10px max(5vw,16px);max-width:none}
+nav b{font-family:Archivo;font-weight:900;font-size:18px;white-space:nowrap}
+.links{display:flex;gap:4px;overflow-x:auto;margin-left:auto;scrollbar-width:none}
+.links a{flex:none;text-decoration:none;font-size:14px;font-weight:600;padding:10px 12px;border-radius:999px}
+.links a:hover,.links a:focus-visible{background:var(--field)}
+.links a.cta{background:var(--ink);color:var(--bg)}
+:focus-visible{outline:3px solid var(--ver);outline-offset:2px}
+.hero{background:var(--mari);color:var(--mari-ink)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:stretch}
+.hero h1{font-size:clamp(46px,8vw,92px);font-weight:900}
+.role{font-family:Archivo;font-weight:700;font-size:clamp(18px,2.2vw,24px);margin:14px 0 18px}
+.lead{font-size:18px;max-width:34ch;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 24px}
+.chips span{border:2px solid var(--mari-ink);border-radius:999px;padding:4px 12px;font-weight:600;font-size:14px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--mari-ink);background:transparent;color:inherit;font:700 15px Inter,sans-serif;cursor:pointer}
+.btn.dark{background:var(--mari-ink);color:#fff}
+.btn:hover{transform:translateY(-1px)}
+/* poster */
+.poster{background:#17130f;color:#f6efe4;border-radius:18px;padding:clamp(18px,2.5vw,28px);display:flex;flex-direction:column;gap:14px;position:relative;box-shadow:0 2px 0 #00000030}
+.poster h2{font-size:15px;font-family:Inter;font-weight:600;letter-spacing:0;color:#ffbe0b}
+.poster .big{font-family:Archivo;font-weight:900;font-size:clamp(56px,9vw,104px);line-height:.9;letter-spacing:-.03em}
+.poster .sub{color:#d8ccbb;font-size:15px;margin:0}
+.bars{display:grid;gap:12px;margin-top:4px}
+.bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center}
+.bar span{font-size:14px;color:#d8ccbb}
+.bar strong{font-family:Archivo;font-size:20px;white-space:nowrap;grid-row:1/3;grid-column:2}
+.bar div{height:22px;background:#2c241c;border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:#ffbe0b;width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.bar.hot i{background:#ff6a45}
+.rank{display:flex;align-items:center;gap:12px;border-top:1px dashed #5a4c3c;padding-top:14px;margin-top:auto}
+.rank b{font-family:Archivo;font-size:40px;color:#ffbe0b;line-height:1}
+.rank p{margin:0;font-size:14px;color:#d8ccbb}
+/* stub strip */
+.stubs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:2px solid var(--ink);border-radius:14px;overflow:hidden;background:var(--bg)}
+.stub{padding:16px 18px;border-right:2px dashed var(--line)}
+.stub:last-child{border-right:0}
+.stub b{display:block;font-family:Archivo;font-weight:900;font-size:clamp(28px,4vw,40px);line-height:1;white-space:nowrap}
+.stub span{font-size:14px;color:var(--soft)}
+.note{font-size:13px;color:var(--soft)}
+/* sections */
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 32px;margin-bottom:28px}
+.sec-head h2{font-size:clamp(32px,5vw,52px);font-weight:900}
+.sec-head p{margin:0;color:var(--soft);max-width:46ch}
+.case{border-top:3px solid var(--ink);padding-top:28px;margin-top:40px}
+.case:first-of-type{margin-top:0}
+.case-top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 40px;margin-bottom:28px}
+.case-no{font-weight:700;color:var(--ver);font-size:15px;margin-bottom:6px}
+.case h3{font-size:clamp(34px,5.5vw,60px);font-weight:900}
+.case .tag{font-family:Archivo;font-weight:700;font-size:clamp(20px,2.6vw,28px);margin:8px 0 0;color:var(--soft)}
+dl.facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;margin:0;align-self:end;font-size:15px}
+dl.facts dt{font-weight:700}
+dl.facts dd{margin:0;color:var(--soft)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 40px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.blk h4{font-size:20px;margin-bottom:10px}
+ul{margin:0 0 12px;padding-left:20px}
+li{margin-bottom:4px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.panel.mari{background:var(--field);border-color:color-mix(in srgb,var(--mari) 50%,var(--line))}
+.metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin:10px 0 0}
+.m{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.m b{display:block;font-family:Archivo;font-weight:900;font-size:26px;line-height:1.1;white-space:nowrap}
+.m span{font-size:13px;color:var(--soft)}
+.tiers{display:grid;gap:10px}
+.tier{display:grid;grid-template-columns:72px minmax(0,1fr);border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.tier .lvl{display:flex;flex-direction:column;justify-content:center;align-items:center;font-family:Archivo;font-weight:900;font-size:28px;line-height:1;color:var(--mari-ink)}
+.tier .lvl small{font:600 12px Inter;margin-top:4px}
+.tier .txt{padding:12px 16px;background:var(--card)}
+.tier .txt b{display:block;font-size:16px}
+.tier .txt span{font-size:14px;color:var(--soft)}
+.t3 .lvl{background:#ffe08a}.t2 .lvl{background:#ffbe0b}.t1 .lvl{background:#ff8a3d}
+.take{background:var(--ink);color:var(--bg);border-radius:14px;padding:20px 24px;font-family:Archivo;font-weight:700;font-size:clamp(18px,2.2vw,22px);line-height:1.3;margin-top:24px}
+.take small{display:block;font:600 13px Inter;color:var(--mari);margin-bottom:6px}
+.caps{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.caps span{font-size:13px;font-weight:600;background:var(--field);border-radius:999px;padding:4px 10px}
+.ph{border:2px dashed color-mix(in srgb,var(--ver) 60%,var(--line));border-radius:12px;background:repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--mari) 10%,transparent) 10px 20px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:18px;min-height:170px;color:var(--soft);font-size:14px}
+.ph b{color:var(--ver);font-size:13px;margin-bottom:4px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;counter-reset:f}
+.flow div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;font-weight:600;font-size:15px}
+.flow div::before{counter-increment:f;content:counter(f);display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--mari);color:var(--mari-ink);font-size:12px;font-weight:800;margin-right:8px}
+.alt{background:var(--field)}
+.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.team .panel h4{font-size:17px;margin-bottom:8px}
+.team .panel .who{font-size:13px;font-weight:700;color:var(--ver);margin-bottom:6px}
+.approach{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:20px}
+.approach div{border-top:3px solid var(--mari);padding-top:10px;font-size:14px;color:var(--soft)}
+.approach b{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
+.quote{font-family:Archivo;font-weight:800;font-size:clamp(22px,3vw,32px);line-height:1.2;max-width:30ch;margin-top:32px}
+.exp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.exp .panel h4{font-size:19px;margin-bottom:8px}
+.exp ul{font-size:15px;color:var(--soft)}
+.contact{background:var(--mari);color:var(--mari-ink)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px}
+.contact h2{font-size:clamp(36px,6vw,64px);font-weight:900}
+.clist{display:grid;gap:10px}
+.crow{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;background:#fff8e1;border-radius:12px;padding:12px 16px;color:#17130f}
+.crow b{font-size:14px}
+.crow span{overflow-wrap:anywhere}
+.pending{color:#a62a0c;font-weight:600}
+.cv{background:#17130f;color:#f6efe4;border-radius:14px;padding:18px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.cv p{margin:0;font-size:14px;color:#d8ccbb}
+.cv .btn{border-color:#ffbe0b;color:#17130f;background:#ffbe0b}
+.cv .btn[aria-disabled=true]{opacity:.55;cursor:not-allowed}
+footer{padding:24px max(5vw,16px);font-size:14px;color:var(--soft);border-top:1px solid var(--line)}
+@media(max-width:900px){.hero .wrap,.contact .wrap,.case-top,.grid2{grid-template-columns:minmax(0,1fr)}.exp,.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}.team{grid-template-columns:repeat(2,minmax(0,1fr))}.approach{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.exp,.grid3,.team{grid-template-columns:minmax(0,1fr)}.approach{grid-template-columns:repeat(2,minmax(0,1fr))}.links a:not(.cta){display:none}.stub{border-right:0;border-bottom:2px dashed var(--line)}.stub:last-child{border-bottom:0}.hero h1{font-size:clamp(44px,13vw,64px)}.crow{grid-template-columns:76px minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Wamique Ahmad</b><div class="links"><a href="#work">Case studies</a><a href="#team">Leadership</a><a href="#expertise">Expertise</a><a href="#fit">JioBlast fit</a><a class="cta" href="#contact">Contact &amp; CV</a></div></div></nav>
+
+<header class="hero band">
+  <div class="wrap">
+    <div>
+      <h1>Wamique Ahmad</h1>
+      <p class="role">Content Strategist, Community Builder, Brand &amp; Campaign Lead</p>
+      <p class="lead">I build content strategies around people, platforms and experiences.</p>
+      <div class="chips"><span>Strategy</span><span>Content</span><span>Community</span><span>Events</span><span>Execution</span></div>
+      <div class="btns"><a class="btn dark" href="#getsorted">Read the GetSorted case</a><a class="btn" href="#contact">Contact &amp; CV</a></div>
+    </div>
+    <aside class="poster" aria-label="GetSorted Reddit results">
+      <h2>GetSorted, Banaras: Reddit launch to community</h2>
+      <div class="big">65.9K</div>
+      <p class="sub">views on the post-event recap, from a community started from zero</p>
+      <div class="bars" id="bars"></div>
+      <div class="rank"><b>#1</b><p>Recap ranked #1 all-time in the subreddit, per the original screenshot</p></div>
+    </aside>
+  </div>
+</header>
+
+<section class="band" style="padding-block:24px 8px">
+  <div class="wrap">
+    <div class="stubs" id="stubs"></div>
+  </div>
+</section>
+
+<main>
+<section class="band" id="work">
+  <div class="wrap">
+    <div class="sec-head"><h2>Case studies</h2><p>Four projects across community, fashion retail, hospitality and consumer products. GetSorted first, as the most recent and strongest proof of community building.</p></div>
+
+    <article class="case" id="getsorted">
+      <div class="case-top">
+        <div><div class="case-no">Case study 1</div><h3>GetSorted</h3><p class="tag">Building a community from zero.</p></div>
+        <dl class="facts"><dt>Industry</dt><dd>Community &amp; Events</dd><dt>Location</dt><dd>Banaras, India</dd><dt>Role</dt><dd>Founder, Content Strategist, Community Builder, Event Lead</dd></dl>
+      </div>
+      <div class="grid2">
+        <div class="blk">
+          <h4>The objective</h4>
+          <p>Build a community around social experiences in Banaras by connecting people through accessible, curated events.</p>
+          <h4>The start</h4>
+          <p>I founded GetSorted from scratch, using Reddit to introduce the concept and build interest in our first house party. Reddit's audience is highly opinionated, and credibility depends on how the community receives the content. I focused on:</p>
+          <ul><li>Platform-native copywriting</li><li>Carefully positioned event announcements</li><li>Community-first messaging</li><li>Strategic and playful comment engagement</li><li>Managing negative conversations without escalating them</li></ul>
+        </div>
+        <div class="blk">
+          <h4>Reddit campaign performance</h4>
+          <div class="panel"><b>Original event announcement</b><div class="metric-row" id="m-ann"></div></div>
+          <div class="panel mari" style="margin-top:12px"><b>Post-event recap</b><div class="metric-row" id="m-rec"></div><p class="note" style="margin:10px 0 0">Ranked #1 all-time in the subreddit, according to the supplied screenshot.</p></div>
+        </div>
+      </div>
+      <div class="gallery">
+        <div class="ph"><b>Screenshot to add</b>Reddit event announcement post with views and comments</div>
+        <div class="ph"><b>Screenshot to add</b>Reddit recap post showing 65.9K views and #1 all-time rank</div>
+        <div class="ph"><b>Photo to add</b>First GetSorted house party</div>
+      </div>
+
+      <div class="grid2" style="margin-top:32px">
+        <div class="blk">
+          <h4>From audience to participation</h4>
+          <div class="flow"><div>Reddit announcement</div><div>60+ registrations</div><div>~20 curated attendees</div><div>A larger community</div></div>
+          <p style="margin-top:14px">The first announcement drew more than 60 registrations. I personally curated an initial group of about 20 attendees, and that event became the starting point for the wider community.</p>
+          <h4 style="margin-top:20px">Community growth</h4>
+          <div class="metric-row"><div class="m"><b>1,600+</b><span>Instagram followers</span></div><div class="m"><b>600+</b><span>WhatsApp members</span></div><div class="m"><b>5</b><span>core team members</span></div></div>
+        </div>
+        <div class="blk">
+          <h4>Developing the event ecosystem</h4>
+          <p>House parties asked for a lot of commitment, and not everyone was ready for an overnight social experience. So we built a tiered structure with easier ways in.</p>
+          <div class="tiers">
+            <div class="tier t3"><div class="lvl">3<small>Low</small></div><div class="txt"><b>Low commitment</b><span>Card and board-game meetups, accessible ticket prices, easy entry for new members</span></div></div>
+            <div class="tier t2"><div class="lvl">2<small>Social</small></div><div class="txt"><b>Social experiences</b><span>Pub quizzes, bad karaoke, social drinking events: a preview of the house-party atmosphere</span></div></div>
+            <div class="tier t1"><div class="lvl">1<small>Signature</small></div><div class="txt"><b>Signature experiences</b><span>Curated house parties, higher-commitment experiences, larger community gatherings</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="grid2" style="margin-top:28px">
+        <div class="blk"><h4>My role</h4><ul><li>Founded and developed the community</li><li>Led content strategy and communication</li><li>Managed Reddit engagement</li><li>Developed event formats and audience entry points</li><li>Delegated responsibilities across a five-member core team</li><li>Reviewed and proofread content</li><li>Maintained the brand's tone and creative consistency</li></ul></div>
+        <div class="gallery" style="margin-top:0"><div class="ph"><b>Photo to add</b>Board-game meetup or pub quiz</div><div class="ph"><b>Screenshot to add</b>GetSorted Instagram profile</div></div>
+      </div>
+      <div class="take"><small>Key takeaway</small>Community growth requires more than reach. It requires understanding audience behaviour and creating reasons for people to participate repeatedly.</div>
+    </article>
+
+    <article class="case" id="mugdha">
+      <div class="case-top">
+        <div><div class="case-no">Case study 2</div><h3>Mugdha Sarees</h3><p class="tag">A Saree for Everyone.</p></div>
+        <dl class="facts"><dt>Industry</dt><dd>Fashion &amp; Retail</dd><dt>Location</dt><dd>Varanasi, India, extended to Hyderabad</dd><dt>Role</dt><dd>Marketing &amp; Campaign Lead</dd></dl>
+      </div>
+      <div class="grid2">
+        <div class="blk">
+          <h4>The objective</h4>
+          <p>Mugdha Sarees, a major Banaras showroom, wanted to show its collection to a pan-India audience and challenge the idea that sarees are mainly for weddings and occasions.</p>
+          <h4>The campaign idea</h4>
+          <p>Represent women across different age groups, body types, skin tones and cultural and regional backgrounds. The message: sarees can be embraced by everyone, whatever their age, appearance or regional identity.</p>
+          <div class="grid2" style="gap:12px;margin-top:8px"><div class="panel"><b>Digital</b><p class="note" style="margin:4px 0 0">Instagram-led visual storytelling and product showcasing</p></div><div class="panel"><b>Offline</b><p class="note" style="margin:4px 0 0">Billboards in Hyderabad, beyond the brand's home market</p></div></div>
+        </div>
+        <div class="blk grid2" style="gap:12px 20px">
+          <div><h4>Campaign strategy</h4><ul><li>Helped conceptualise and plan the campaign</li><li>Developed the inclusive audience positioning</li></ul></div>
+          <div><h4>Creative direction</h4><ul><li>Set the shoot atmosphere</li><li>Guided mood and visual approach</li><li>Kept production true to the concept</li></ul></div>
+          <div><h4>Production</h4><ul><li>Oversaw shoot execution</li><li>Coordinated production needs</li><li>Delegated specialist roles, including model casting</li></ul></div>
+          <div><h4>Marketing execution</h4><ul><li>Managed the primary Instagram presence</li><li>Coordinated billboard visibility in Hyderabad</li></ul></div>
+        </div>
+      </div>
+      <div class="gallery"><div class="ph"><b>Photo to add</b>Campaign shoot image</div><div class="ph"><b>Photo to add</b>Hyderabad billboard</div><div class="ph"><b>Screenshot to add</b>Instagram campaign posts</div></div>
+      <div class="take"><small>Key takeaway</small>A product's audience can be expanded by changing how it is represented, communicated and positioned.</div>
+      <div class="caps"><span>Campaign strategy</span><span>Inclusive storytelling</span><span>Creative direction</span><span>Production management</span><span>Digital and outdoor coordination</span></div>
+    </article>
+
+    <article class="case" id="tenants">
+      <div class="case-top">
+        <div><div class="case-no">Case study 3</div><h3>The Tenants House</h3><p class="tag">Making events commercially sustainable.</p></div>
+        <dl class="facts"><dt>Industry</dt><dd>Hospitality &amp; Events</dd><dt>Location</dt><dd>Banaras, India</dd><dt>Duration</dt><dd>About 4 to 5 months</dd><dt>Role</dt><dd>Community &amp; Operations Lead</dd></dl>
+      </div>
+      <div class="grid3">
+        <div class="panel"><h4 style="font-size:19px;margin-bottom:8px">The situation</h4><p style="margin:0">I joined when the company was struggling to generate revenue. I covered event planning, hosting, delegation, content coordination and finding ways to make the event business sustainable.</p></div>
+        <div class="panel mari"><h4 style="font-size:19px;margin-bottom:8px">Monetisation</h4><p style="margin:0">The challenge was earning revenue without hurting how the community valued the events. I built a pricing approach that was viable and fair for the local audience. <b>Sales did not decline after monetisation.</b></p></div>
+        <div class="panel"><h4 style="font-size:19px;margin-bottom:8px">Business development</h4><ul style="margin:0"><li>Established Banaras cafés began approaching us</li><li>Venue owners offered spaces, some with no venue fee</li><li>We moved from seeking venues to receiving offers</li></ul></div>
+      </div>
+      <div class="grid2" style="margin-top:24px">
+        <div class="blk"><h4>My responsibilities</h4><ul><li>Event planning and hosting</li><li>Team delegation and coordination</li><li>Community engagement</li><li>Event marketing and content publishing</li><li>Pricing and monetisation strategy</li><li>Venue relationships and partnerships</li><li>On-ground execution</li></ul></div>
+        <div class="gallery" style="margin-top:0"><div class="ph"><b>Photo to add</b>Tenants House event</div><div class="ph"><b>Screenshot to add</b>Event poster or ticket listing</div></div>
+      </div>
+      <div class="take"><small>Key takeaway</small>Community trust and commercial sustainability can work together when pricing reflects the value of the experience.</div>
+      <div class="caps"><span>Business development</span><span>Event monetisation</span><span>Community management</span><span>Operations</span><span>Partnerships</span><span>Team leadership</span></div>
+    </article>
+
+    <article class="case" id="product">
+      <div class="case-top">
+        <div><div class="case-no">Case study 4</div><h3>Independent Product &amp; Brand Development</h3><p class="tag">Product thinking. Market understanding. Commercial ownership.</p></div>
+        <dl class="facts"><dt>Industry</dt><dd>Consumer Products</dd><dt>Period</dt><dd>About 2016 to 2019</dd><dt>Role</dt><dd>Independent Project Lead</dd></dl>
+      </div>
+      <p>I independently developed and positioned an e-liquid product range for the Indian market, from consumer research and recipe development to branding, pricing, sales and customer relationships.</p>
+      <div class="grid3" style="margin-top:16px">
+        <div class="panel"><h4 style="font-size:19px;margin-bottom:8px">Research &amp; development</h4><p class="note">Researched flavour preferences and gaps in existing offerings, then:</p><ul style="margin:0"><li>Developed flavour recipes</li><li>Ran product tastings</li><li>Evaluated formulations against quality expectations</li><li>Adapted profiles to Indian preferences</li></ul></div>
+        <div class="panel"><h4 style="font-size:19px;margin-bottom:8px">Brand positioning</h4><ul style="margin:0"><li>Culturally relevant product names</li><li>Vibrant, distinctive colour palettes</li><li>Packaging and visual direction</li><li>Identity that resonated with the audience</li></ul></div>
+        <div class="panel"><h4 style="font-size:19px;margin-bottom:8px">Commercial</h4><ul style="margin:0"><li>Pricing strategy</li><li>Sales management</li><li>Customer relationships</li><li>Outreach via Facebook and Instagram communities</li><li>Overall coordination</li></ul></div>
+      </div>
+      <p style="margin-top:16px"><b>Execution model.</b> I kept ownership of product development, business decisions and quality evaluation, and outsourced creative production and IT solutions.</p>
+      <div class="take"><small>Key takeaway</small>Product positioning works best when consumer research, product quality, brand identity and commercial decisions are considered together.</div>
+      <div class="caps"><span>Consumer research</span><span>Product development</span><span>Quality evaluation</span><span>Brand strategy</span><span>Pricing</span><span>Sales</span><span>CRM</span></div>
+      <p class="note" style="margin-top:12px">Historical project. Original campaign creatives and performance records are no longer available.</p>
+    </article>
+  </div>
+</section>
+
+<section class="band alt" id="team">
+  <div class="wrap">
+    <div class="sec-head"><h2>Leading people, keeping standards</h2><p>GetSorted runs on a five-member core team, with specialist services outsourced when needed.</p></div>
+    <div class="team">
+      <div class="panel"><div class="who">Wamique Ahmad</div><h4>Strategic &amp; creative leadership</h4><ul class="note"><li>Brand vision and content direction</li><li>Campaign planning</li><li>Delegation and coordination</li><li>Proofreading and approval</li><li>Brand voice and quality control</li></ul></div>
+      <div class="panel"><div class="who">Team member</div><h4>Creative &amp; visual production</h4><ul class="note"><li>Graphic creatives</li><li>Cinematography</li><li>Visual branding and identity</li></ul></div>
+      <div class="panel"><div class="who">Team member</div><h4>Event operations</h4><ul class="note"><li>Logistics</li><li>On-ground execution</li><li>Operational coordination</li><li>Delegated responsibilities</li></ul></div>
+      <div class="panel"><div class="who">Two team members</div><h4>Social media &amp; event support</h4><ul class="note"><li>Timely social posting</li><li>Sales support</li><li>Event decorations</li><li>On-ground assistance</li></ul></div>
+    </div>
+    <div class="approach">
+      <div><b>Direction</b>Clear objectives and creative standards</div>
+      <div><b>Delegation</b>Responsibilities matched to capabilities</div>
+      <div><b>Quality control</b>Content reviewed before publication</div>
+      <div><b>Consistency</b>A recognisable voice across platforms</div>
+      <div><b>Execution</b>Internal and external resources coordinated</div>
+    </div>
+    <p class="quote">My job isn't to do every task myself. It's to make sure the right people understand the objective, take ownership and deliver to the brand's standard.</p>
+  </div>
+</section>
+
+<section class="band" id="expertise">
+  <div class="wrap">
+    <div class="sec-head"><h2>Strategy backed by execution</h2><p>Experience across brand marketing, event management, product development and community-led businesses.</p></div>
+    <div class="grid2" style="margin-bottom:28px">
+      <div><p>My approach combines audience understanding with practical execution. I identify what people respond to, build communication around that insight, and coordinate teams to deliver consistent results.</p><p>That has ranged from building an events community in Banaras to integrated marketing campaigns, product development and business monetisation.</p></div>
+      <div class="panel mari"><b>Working philosophy</b><div class="flow" style="margin-top:10px"><div>Understand the audience</div><div>Define the objective</div><div>Build the strategy</div><div>Delegate execution</div><div>Maintain quality</div><div>Measure the outcome</div></div></div>
+    </div>
+    <div class="exp" id="exp"></div>
+  </div>
+</section>
+
+<section class="band alt" id="fit">
+  <div class="wrap">
+    <div class="sec-head"><h2>What I bring to JioBlast</h2><p>Content strategy beyond content publishing: audience behaviour, brand identity, community engagement and business objectives as one system.</p></div>
+    <div class="exp" id="fitgrid"></div>
+    <div class="panel" style="margin-top:16px"><h4 style="font-size:19px;margin-bottom:8px">Gaming &amp; esports relevance</h4><p>My documented experience is strongest in community building, event management, digital content and audience engagement. These carry over to gaming and esports, where understanding niche audiences, building participation and creating experiences matter.</p><p style="margin:0">I would bring this foundation while building deeper knowledge of JioBlast's gaming titles, esports audiences and competitive content formats.</p></div>
+  </div>
+</section>
+</main>
+
+<section class="band contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Let's build something people care about.</h2>
+      <p style="margin-top:16px;font-size:18px">I work where strategy, content, community and execution meet, and I'm interested in building content systems, leading creative teams and creating experiences that earn real audience engagement.</p>
+      <p style="font-size:15px"><b>Selected experience:</b> GetSorted, The Tenants House, Mugdha Sarees, Independent Product &amp; Brand Development</p>
+    </div>
+    <div class="clist">
+      <div class="crow"><b>Email</b><span class="pending">Email to be added</span></div>
+      <div class="crow"><b>Phone</b><span class="pending">Phone to be added</span></div>
+      <div class="crow"><b>LinkedIn</b><span class="pending">LinkedIn link to be added</span></div>
+      <div class="crow"><b>Portfolio</b><span class="pending">Website URL to be added</span></div>
+      <div class="cv"><div><b>Curriculum vitae</b><p id="cvnote">CV file to be added</p></div><a class="btn" id="cvbtn" aria-disabled="true" role="link">Download CV</a></div>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap">Wamique Ahmad · Content Strategy Portfolio 2026 · Prepared for the Content Strategist opportunity at JioBlast</div></footer>
+
+<script>
+{
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const bars=[["Event announcement views",10.5,"10.5K",""],["Post-event recap views",65.9,"65.9K","hot"]];
+const max=65.9;
+const be=document.getElementById('bars');
+be.innerHTML=bars.map(b=>`<div class="bar ${b[3]}"><span>${esc(b[0])}</span><strong>${esc(b[2])}</strong><div><i data-w="${b[1]/max*100}"></i></div></div>`).join('');
+requestAnimationFrame(()=>requestAnimationFrame(()=>be.querySelectorAll('i').forEach(i=>i.style.width=i.dataset.w+'%')));
+const stubs=[["65.9K","recap views"],["252","recap upvotes"],["60+","registrations from one post"],["1,600+","Instagram followers"],["600+","WhatsApp members"]];
+document.getElementById('stubs').innerHTML=stubs.map(s=>`<div class="stub"><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join('');
+const mrow=(id,a)=>document.getElementById(id).innerHTML=a.map(m=>`<div class="m"><b>${esc(m[0])}</b><span>${esc(m[1])}</span></div>`).join('');
+mrow('m-ann',[["10.5K","views"],["174","comments"],["33","upvotes"],["95%","upvote ratio"]]);
+mrow('m-rec',[["65.9K","views"],["252","upvotes"],["111","comments"],["100","shares"],["93%","upvote ratio"]]);
+const cards=(id,a)=>document.getElementById(id).innerHTML=a.map(c=>`<div class="panel"><h4>${esc(c[0])}</h4><ul>${c[1].map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`).join('');
+cards('exp',[
+["Content strategy",["Content planning and campaign development","Platform-specific communication","Brand voice and messaging","Content review and proofreading","Audience engagement strategy"]],
+["Community development",["Organic audience acquisition","Engagement and moderation","Online-to-offline conversion","Community retention","Event-led growth"]],
+["Brand & creative direction",["Brand positioning","Campaign conceptualisation","Visual direction","Production supervision","Creative quality control"]],
+["Events & experiences",["Event planning and curation","Event marketing","Ticketing and monetisation","On-ground coordination","Venue and partner relationships"]],
+["Team & project management",["Delegation and task ownership","Creative team coordination","Outsourced vendor management","Production oversight","Execution monitoring"]],
+["Commercial strategy",["Pricing strategy","Customer relationships","Sales coordination","Product positioning","Revenue generation"]]]);
+cards('fitgrid',[
+["Short-form content strategy",["Concepts built around audience interests","Campaign objectives turned into platform-native content","Consistent brand voice","Creative reviewed before publishing"]],
+["Community-led marketing",["Understanding niche online communities","Organic acquisition strategies","Encouraging participation","Connecting digital audiences with real-world experiences"]],
+["Creative team management",["Delegating across designers, editors and specialists","Coordinating internal and external teams","Setting creative expectations","Holding quality and delivery standards"]],
+["Event & experience marketing",["Event-led content campaigns","Building anticipation before events","Coordinating promotion","Turning events into post-event content"]],
+["Commercial thinking",["Pricing and perceived value","Linking content and community to business goals","Spotting partnership and monetisation opportunities"]],
+["Proof from the work",["Reddit launch to 65.9K-view recap","Tiered events that widened entry","Monetised events with no drop in sales","Inclusive saree campaign across two cities"]]]);
+document.getElementById('cvbtn').addEventListener('click',e=>{if(e.currentTarget.getAttribute('aria-disabled')==='true'){e.preventDefault();document.getElementById('cvnote').textContent='The CV will be available here once it is uploaded.'}});
+}
+</script>
+</body>
+</html>
