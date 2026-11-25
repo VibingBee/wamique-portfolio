@@ -110,6 +110,11 @@ li{margin-bottom:4px}
 .shot{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0b0f12;display:flex;flex-direction:column}
 .shot img{display:block;width:100%;height:auto;aspect-ratio:720/1280;object-fit:cover;object-position:top;max-height:560px}
 .shot figcaption{padding:10px 14px;font-size:14px;font-weight:600;background:var(--card);color:var(--ink);margin-top:auto}
+.gs-shots{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:12px;margin-top:20px;align-items:start}
+.gs-left{display:grid;gap:12px}
+.shot.post img{aspect-ratio:auto;max-height:none}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2px;background:#0b0f12}
+@media(max-width:700px){.gs-shots{grid-template-columns:minmax(0,1fr)}}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}
 .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;counter-reset:f}
 .flow div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;font-weight:600;font-size:15px}
@@ -194,10 +199,15 @@ li{margin-bottom:4px}
           <div class="panel mari" style="margin-top:12px"><b>Post-event recap</b><div class="metric-row" id="m-rec"></div><p class="note" style="margin:10px 0 0">"Accidentally threw the best house party in Varanasi (still recovering)", posted on r/varanasi. Reddit insights mark it as my #1 post of all time.</p></div>
         </div>
       </div>
-      <div class="gallery">
-        <figure class="shot"><img src="assets/reddit-announcement.jpg" alt="Reddit post insights for the House Party announcement on r/varanasi: 10.5k views, 33 upvotes, 95% upvote ratio, 174 comments" loading="lazy" width="720" height="1280"><figcaption>Announcement: 10.5K views, 174 comments</figcaption></figure>
-        <figure class="shot"><img src="assets/reddit-recap.jpg" alt="Reddit post insights for the recap post: number 1 post of all time, 65.9k views, 252 upvotes, 93% upvote ratio, 111 comments" loading="lazy" width="720" height="1280"><figcaption>Recap: 65.9K views, my #1 post of all time</figcaption></figure>
-        <div class="ph"><b>Photo to add</b>First GetSorted house party</div>
+      <div class="gs-shots">
+        <div class="gs-left">
+          <figure class="shot post"><img src="assets/reddit-announcement-post.jpg" alt="The original House Party post on r/varanasi: 33 upvotes, 174 comments, 10.5k views" loading="lazy" width="720" height="440"><figcaption>Announcement post: 10.5K views, 174 comments</figcaption></figure>
+          <div class="ph"><b>Photo to add</b>First GetSorted house party</div>
+        </div>
+        <figure class="shot">
+          <div class="pair"><img src="assets/reddit-announcement.jpg" alt="Reddit post insights for the House Party announcement: 10.5k views, 33 upvotes, 95% upvote ratio, 174 comments" loading="lazy" width="720" height="1280"><img src="assets/reddit-recap.jpg" alt="Reddit post insights for the recap post: number 1 post of all time, 65.9k views, 252 upvotes, 93% upvote ratio, 111 comments" loading="lazy" width="720" height="1280"></div>
+          <figcaption>Reddit post insights, announcement and recap. The recap reached 65.9K views and became my #1 post of all time.</figcaption>
+        </figure>
       </div>
 
       <div class="grid2" style="margin-top:32px">
